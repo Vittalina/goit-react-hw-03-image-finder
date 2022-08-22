@@ -19,4 +19,4 @@
 //   ),
 // };
 
-export default ImageGallery;
+// export default ImageGallery;
