@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import { Box } from 'components/Box';
 import Searchbar from 'components/Searchbar/Searchbar';
-import ImageGallery from 'components/ImageGallery/ImageGallery';
+// import ImageGallery from 'components/ImageGallery/ImageGallery';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 // import Loader from 'components/Loader/Loader';
 // import Button from 'components/Button/Button';
@@ -20,9 +20,9 @@ class App extends Component {
     return (
       <div>
         <Searchbar onSubmit={this.onSubmit} />
-        <ImageGallery>
-          <ImageGalleryItem />
-        </ImageGallery>
+        {/* <ImageGallery> */}
+        <ImageGalleryItem />
+        {/* </ImageGallery> */}
       </div>
     );
   }

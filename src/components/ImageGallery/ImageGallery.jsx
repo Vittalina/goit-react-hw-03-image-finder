@@ -1,13 +1,13 @@
 // import PropTypes from 'prop-types';
-import React from 'react';
+// import React from 'react';
 // import { nanoid } from 'nanoid';
 // import { ListItem, Button } from 'components/Contacts/Contacts.styled';
 
-const ImageGallery = () => {
-  return (
-    <ul className="gallery">{/* <!-- Набор <li> с изображениями --> */}</ul>
-  );
-};
+// const ImageGallery = () => {
+//   return (
+//     <ul className="gallery">{/* <!-- Набор <li> с изображениями --> */}</ul>
+//   );
+// };
 
 // Contacts.propTypes = {
 //   contacts: PropTypes.arrayOf(
