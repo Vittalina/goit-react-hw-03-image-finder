@@ -1,15 +1,15 @@
 // import PropTypes from 'prop-types';
-import React from 'react';
+// import React from 'react';
 // import { nanoid } from 'nanoid';
 // import { ListItem, Button } from 'components/Contacts/Contacts.styled';
 
-const ImageGalleryItem = () => {
-  return (
-    <li className="gallery-item">
-      <img src="" alt="" />
-    </li>
-  );
-};
+// const ImageGalleryItem = () => {
+//   return (
+//     <li className="gallery-item">
+//       <img src="" alt="" />
+//     </li>
+//   );
+// };
 
 // Contacts.propTypes = {
 //   contacts: PropTypes.arrayOf(
@@ -21,4 +21,4 @@ const ImageGalleryItem = () => {
 //   ),
 // };
 
-export default ImageGalleryItem;
+// export default ImageGalleryItem;
