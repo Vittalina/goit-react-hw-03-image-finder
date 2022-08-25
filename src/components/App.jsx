@@ -42,17 +42,23 @@ class App extends Component {
     }
   }
 
-  onSubmit = value => {
+  onSubmit = () => {
     this.setState(prevState => ({
-      searchQueryPicture: prevState.value,
+      gallery: [...prevState.gallery],
     }));
+
+    // this.setState({
+    //   searchQueryPicture,
+    // });
   };
+
   onLoadMoreBtn = () => {
     this.setState(prevState => ({
       page: prevState.page + 1,
       loading: true,
     }));
   };
+
   render() {
     return (
       <div className="App">
