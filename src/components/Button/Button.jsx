@@ -1,23 +1,16 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-const Button = () => {
+const Button = ({ onClick }) => {
   return (
-    <button type="button" className="Button">
+    <button type="button" className="Button" onClick={onClick}>
       {' '}
       Load more
     </button>
   );
 };
 
-// Contacts.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.exact({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     })
-//   ),
-// };
-
+Button.propType = {
+  onClick: PropTypes.func.isRequired,
+};
 export default Button;

@@ -36,23 +36,33 @@ class App extends Component {
       .finally(() => this.setState({ loading: false }));
   }
 
-  componentDidUpdate(prevProps, prevState) {}
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.gallery !== this.state.gallery) {
+      this.setState({ loading: false });
+    }
+  }
 
-  onSubmit = () => {
+  onSubmit = value => {
     this.setState(prevState => ({
       searchQueryPicture: prevState.value,
     }));
   };
-
+  onLoadMoreBtn = () => {
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+      loading: true,
+    }));
+  };
   render() {
     return (
       <div className="App">
         <Searchbar onSubmit={this.onSubmit} />
-        {this.state.loading && <h1>Loading...</h1>}
+        {/* {this.state.loading && <h1>Loading...</h1>} */}
+        {/* {this.state.loading && <Loader />} */}
         <ImageGallery>
           <ImageGalleryItem galleryItems={this.state.gallery} />
         </ImageGallery>
-        <Button />
+        <Button onClick={this.onLoadMoreBtn} />
       </div>
     );
   }

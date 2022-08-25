@@ -207,3 +207,10 @@ img {
 .Button:focus {
   background-color: #303f9f;
 }
+
+.Loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
