@@ -1,24 +1,26 @@
-// import PropTypes from 'prop-types';
-// import React from 'react';
-// import { nanoid } from 'nanoid';
-// import { ListItem, Button } from 'components/Contacts/Contacts.styled';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-// const ImageGalleryItem = () => {
-//   return (
-//     <li className="gallery-item">
-//       <img src="" alt="" />
-//     </li>
-//   );
-// };
+const ImageGalleryItem = ({ galleryItems }) => {
+  return (
+    <>
+      {galleryItems.map(({ id, webformatURL, largeImageURL }) => (
+        <li key={id} className="ImageGalleryItem">
+          <img src={webformatURL} alt="" className="ImageGalleryItem-image" />
+        </li>
+      ))}
+    </>
+  );
+};
 
-// Contacts.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.exact({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     })
-//   ),
-// };
+ImageGalleryItem.propType = {
+  galleryItems: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      webformatURL: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
+    })
+  ),
+};
 
-// export default ImageGalleryItem;
+export default ImageGalleryItem;
