@@ -31,8 +31,8 @@ class App extends Component {
       // this.setState({ loading: false });
       response(
         this.state.searchQueryPicture,
-        this.state.page,
-        this.state.perPage
+        this.state.perPage,
+        this.state.page
       )
         .then(data =>
           this.setState({
