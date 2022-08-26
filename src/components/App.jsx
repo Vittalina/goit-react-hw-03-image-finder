@@ -6,6 +6,7 @@ import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import Button from 'components/Button/Button';
 // import Loader from 'components/Loader/Loader';
 // import Modal from 'components/Modal/Modal';
+import response from '../services/api';
 
 class App extends Component {
   state = {
@@ -19,37 +20,30 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    const BASE_URL = 'https://pixabay.com/api/';
-    const MY_API_KEY = '28384939-76d0db34094acd1949cd365d2';
-
-    // const response =
-    fetch(
-      `${BASE_URL}?key=${MY_API_KEY}&q=${this.state.searchQueryPicture}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.state.perPage}&page=${this.state.page}`
-    )
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          gallery: [...data.hits],
-          total: data.totalHits,
-        })
-      )
-      .finally(() => this.setState({ loading: false }));
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.gallery !== this.state.gallery) {
+    if (
+      prevState.page !== this.state.page ||
+      prevState.searchQueryPicture !== this.state.searchQueryPicture
+    ) {
       this.setState({ loading: false });
+
+      // response(this.state.searchQueryPicture, this.state.page);
     }
+    console.log(this.state.searchQueryPicture);
+    console.log(this.state.page);
   }
 
-  onSubmit = () => {
-    this.setState(prevState => ({
-      gallery: [...prevState.gallery],
-    }));
+  onSubmit = searchQueryPicture => {
+    this.setState({ searchQueryPicture, loading: true });
 
-    // this.setState({
-    //   searchQueryPicture,
-    // });
+    response(searchQueryPicture, this.state.page).then(data =>
+      this.setState({
+        gallery: [...data.hits],
+        total: data.totalHits,
+      })
+    );
   };
 
   onLoadMoreBtn = () => {
@@ -65,9 +59,12 @@ class App extends Component {
         <Searchbar onSubmit={this.onSubmit} />
         {/* {this.state.loading && <h1>Loading...</h1>} */}
         {/* {this.state.loading && <Loader />} */}
+
+        {/* {this.state.gallery.length > 0 && ( */}
         <ImageGallery>
           <ImageGalleryItem galleryItems={this.state.gallery} />
         </ImageGallery>
+        {/* )} */}
         <Button onClick={this.onLoadMoreBtn} />
       </div>
     );

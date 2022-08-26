@@ -16,11 +16,12 @@ class Searchbar extends Component {
       alert('Please enter your request');
       return;
     }
+
     this.setState({ query: '' });
   };
 
   onInputChange = event => {
-    this.setState({ query: event.target.value });
+    this.setState({ query: event.target.value.toLowerCase() });
     console.log(event.target.value);
   };
 
