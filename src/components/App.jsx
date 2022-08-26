@@ -4,7 +4,7 @@ import Searchbar from 'components/Searchbar/Searchbar';
 import ImageGallery from 'components/ImageGallery/ImageGallery';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import Button from 'components/Button/Button';
-// import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 // import Modal from 'components/Modal/Modal';
 import response from '../services/api';
 
@@ -61,13 +61,13 @@ class App extends Component {
       <div className="App">
         <Searchbar onSubmit={this.onSubmit} />
         {/* {this.state.loading && <h1>Loading...</h1>} */}
-        {/* {this.state.loading && <Loader />} */}
+        {this.state.loading && <Loader />}
 
-        {/* {this.state.gallery.length > 0 && ( */}
-        <ImageGallery>
-          <ImageGalleryItem galleryItems={this.state.gallery} />
-        </ImageGallery>
-        {/* )} */}
+        {this.state.gallery.length > 0 && (
+          <ImageGallery>
+            <ImageGalleryItem galleryItems={this.state.gallery} />
+          </ImageGallery>
+        )}
         <Button onClick={this.onLoadMoreBtn} />
       </div>
     );
