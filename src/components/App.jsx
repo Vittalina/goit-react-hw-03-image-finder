@@ -63,12 +63,14 @@ class App extends Component {
         {/* {this.state.loading && <h1>Loading...</h1>} */}
         {this.state.loading && <Loader />}
 
+        {/* {this.state.gallery.length > 0 && ( */}
+        <ImageGallery>
+          <ImageGalleryItem galleryItems={this.state.gallery} />
+        </ImageGallery>
+        {/* )} */}
         {this.state.gallery.length > 0 && (
-          <ImageGallery>
-            <ImageGalleryItem galleryItems={this.state.gallery} />
-          </ImageGallery>
+          <Button onClick={this.onLoadMoreBtn} />
         )}
-        <Button onClick={this.onLoadMoreBtn} />
       </div>
     );
   }
