@@ -8,9 +8,9 @@ class Searchbar extends Component {
     query: '',
   };
 
-  onSubmitData = (event, { onSubmit }) => {
+  onSubmitData = event => {
     event.preventDefault();
-    onSubmit(this.state.query);
+    this.props.onSubmit(this.state.query);
 
     if (this.state.query.trim() === '') {
       alert('Please enter your request');

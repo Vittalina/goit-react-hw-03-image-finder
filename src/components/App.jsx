@@ -16,6 +16,7 @@ class App extends Component {
     perPage: 12,
     total: '',
     loading: false,
+    error: null,
   };
 
   componentDidMount() {
@@ -27,23 +28,21 @@ class App extends Component {
       prevState.page !== this.state.page ||
       prevState.searchQueryPicture !== this.state.searchQueryPicture
     ) {
-      this.setState({ loading: false });
-
-      // response(this.state.searchQueryPicture, this.state.page);
+      // this.setState({ loading: false });
+      response(this.state.searchQueryPicture, this.state.page)
+        .then(data =>
+          this.setState({
+            gallery: [...data.hits],
+            total: data.totalHits,
+          })
+        )
+        .catch(error => this.setState({ error }))
+        .finally(() => this.setState({ loading: false }));
     }
-    console.log(this.state.searchQueryPicture);
-    console.log(this.state.page);
   }
 
   onSubmit = searchQueryPicture => {
     this.setState({ searchQueryPicture, loading: true });
-
-    response(searchQueryPicture, this.state.page).then(data =>
-      this.setState({
-        gallery: [...data.hits],
-        total: data.totalHits,
-      })
-    );
   };
 
   onLoadMoreBtn = () => {
