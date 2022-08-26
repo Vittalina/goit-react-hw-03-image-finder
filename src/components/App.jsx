@@ -29,7 +29,11 @@ class App extends Component {
       prevState.searchQueryPicture !== this.state.searchQueryPicture
     ) {
       // this.setState({ loading: false });
-      response(this.state.searchQueryPicture, this.state.page)
+      response(
+        this.state.searchQueryPicture,
+        this.state.page,
+        this.state.perPage
+      )
         .then(data =>
           this.setState({
             gallery: [...data.hits],
