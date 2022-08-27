@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import 'styles/styles.css';
 
-const ImageGalleryItem = ({ galleryItems }) => {
+const ImageGalleryItem = ({ galleryItems, onClick }) => {
   return (
     <>
       {galleryItems.map(({ id, webformatURL, largeImageURL }) => (
         <li key={id} className="ImageGalleryItem">
-          <img src={webformatURL} alt="" className="ImageGalleryItem-image" />
+          <img
+            src={webformatURL}
+            alt=""
+            className="ImageGalleryItem-image"
+            url={largeImageURL}
+          />
         </li>
       ))}
     </>
