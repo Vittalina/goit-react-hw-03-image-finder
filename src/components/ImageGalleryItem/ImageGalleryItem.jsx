@@ -7,12 +7,16 @@ const ImageGalleryItem = ({ galleryItems, onClick }) => {
   return (
     <>
       {galleryItems.map(({ id, webformatURL, largeImageURL }) => (
-        <li key={id} className="ImageGalleryItem">
+        <li
+          key={id}
+          className="ImageGalleryItem"
+          onClick={() => onClick(largeImageURL)}
+        >
           <img
             src={webformatURL}
             alt=""
             className="ImageGalleryItem-image"
-            url={largeImageURL}
+            // url={largeImageURL}
           />
         </li>
       ))}

@@ -87,7 +87,9 @@ class App extends Component {
         {this.state.gallery.length > 0 && (
           <Button onClick={this.onLoadMoreBtn} />
         )}
-        {this.state.showModal && <Modal onClose={this.showModal} />}
+        {this.state.showModal && (
+          <Modal onClose={this.showModal} url={this.state.largeImageURL} />
+        )}
       </div>
     );
   }
