@@ -12,12 +12,7 @@ const ImageGalleryItem = ({ galleryItems, onClick }) => {
           className="ImageGalleryItem"
           onClick={() => onClick(largeImageURL)}
         >
-          <img
-            src={webformatURL}
-            alt=""
-            className="ImageGalleryItem-image"
-            // url={largeImageURL}
-          />
+          <img src={webformatURL} alt="" className="ImageGalleryItem-image" />
         </li>
       ))}
     </>

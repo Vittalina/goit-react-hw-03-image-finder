@@ -69,7 +69,7 @@ class App extends Component {
   // };
 
   onClickGalleryImage = largeImageURL => {
-    this.setState({ largeImageURL });
+    this.setState({ largeImageURL, showModal: true });
   };
 
   render() {
